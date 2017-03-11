@@ -1,55 +1,48 @@
 class Rate
-  # attr_accessor :job, :worker, :exempted, :food, :drugs, :electronics
 
-  def initialize(job, worker, exempted, food, drugs, electronics)
-    @job = job
-    @worker = worker
-    @exempted = exempted
-    @food = food
-    @drugs = drugs
-    @electronics = electronics
+  def initialize(price)
+    @quote = 0
+    @total_quote = 0
+    @type = 0
+    @num_worker = 0
+    @price = 0
   end
-end
 
+  def markups
+    if @type == "basic"
+      quote = (@price * 0.05).round(2)
 
-class Flat < Rate
-  def get_quote
-    markup = (@job * 0.05).round(2)
-    return markup
+    elsif @type == "medication"
+      quote = (@price * 0.12).round(2)
+
+    elsif @type == "food"
+      quote = (@price * 0.18).round(2)
+
+    elsif @type == "electronics"
+      quote = (@price * 0.07).round(2)
+
+    else
+      @type == "extempt"
+      quote = (@price * 0)
+    end
   end
-end
 
-class Worker < Rate
-  def get_quote
-    markup = (@job * 1.25).round(2)
-    return markup
+  def worker_rate
+    (1.25 * @num_worker)
   end
-end
 
-class Drugs < Rate
-  def get_quote
-    markup = (@job * 0.125).round(2)
-    return markup
+  def total_quote
+    @total_quote = (@quote + worker_rate)
   end
-end
 
-class Food < Rate
-  def get_quote
-    markup = (@job * 0.18).round(2)
-    return markup
+  def report
+    "#{@quote} for #{@type} and #{@num_worker} person to work the job, total quote comes to: #{@total_quote}"
   end
-end
 
-class Electronics < Rate
-  def get_quote
-    markup = (@job * 0.07).round(2)
-    return markup
-  end
-end
+  cheese = Rate.new("blue cheese")
+  cheese.price
+  cheese.markups
+  cheese.quote
+  cheese.report
 
-class Exempt < Rate
-  def get_quote
-    markup = @job * 0
-    return markup
-  end
 end
