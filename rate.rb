@@ -27,7 +27,7 @@ class Rate
       @type == "extempt"
       quote = (@price * 0)
     end
-    
+
     quote
   end
 
@@ -49,6 +49,3 @@ end
 puts "Output1: Snacks $#{food.total_quote}"
 puts "Output2: Tylenol $#{medication.total_quote}"
 puts "Output3: Lord of the Rings $#{basic.total_quote}"
-
-# total_quote wasn't being used, in this case, it would be food + drugs + books, etc.
-# puts "output: #{total_quote}"
