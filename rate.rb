@@ -1,14 +1,16 @@
 class Rate
 
-  def initialize(price)
-    @quote = 0
-    @total_quote = 0
-    @type = 0
-    @num_worker = 0
-    @price = 0
+    def initialize(type, price, num_worker)
+
+    @type = type
+    @price = price
+    @num_worker = num_worker
+
   end
 
   def markups
+    quote = 0
+
     if @type == "basic"
       quote = (@price * 0.05).round(2)
 
@@ -25,6 +27,8 @@ class Rate
       @type == "extempt"
       quote = (@price * 0)
     end
+    
+    quote
   end
 
   def worker_rate
@@ -32,17 +36,19 @@ class Rate
   end
 
   def total_quote
-    @total_quote = (@quote + worker_rate)
+    @price + markups + worker_rate
   end
-
-  def report
-    "#{@quote} for #{@type} and #{@num_worker} person to work the job, total quote comes to: #{@total_quote}"
-  end
-
-  cheese = Rate.new("blue cheese")
-  cheese.price
-  cheese.markups
-  cheese.quote
-  cheese.report
-
 end
+
+# Input
+  food = Rate.new('food', 30, 3)
+  medication = Rate.new('medication', 12.45, 1)
+  basic = Rate.new('basic', 20.99, 1)
+
+# Final number
+puts "Output1: Snacks $#{food.total_quote}"
+puts "Output2: Tylenol $#{medication.total_quote}"
+puts "Output3: Lord of the Rings $#{basic.total_quote}"
+
+# total_quote wasn't being used, in this case, it would be food + drugs + books, etc.
+# puts "output: #{total_quote}"
