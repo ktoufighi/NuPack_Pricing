@@ -1,4 +1,4 @@
-# NuPack_Pricing
+# NuPack_Pricing Problem
 NuPack is responsible for taking existing products and repackaging them for sale at electronic stores like Best Buy. Companies will phone up NuPack, explain the process and NuPack needs to quickly give them an estimate of how much it will cost. Different markups to the job:
 
 * Without exception, there is a flat markup on all jobs of 5%
@@ -15,13 +15,12 @@ Another system calculates the base price depending on how many products need to 
 
 The flat markup is calculated first and then all other markups are calculated on top of the base price plus flat markup.
 
-
-# Write Up:
+# Write Up
 List of installed dependencies
-Ruby version 2.3.1
-irb version 0.9.6
-Homebrew version 1.1.4
-git version 2.10.0
+* Ruby version 2.3.1
+* irb version 0.9.6
+* Homebrew version 1.1.4
+* git version 2.10.0
 
 For this assignment there was no need to install any gems.
 
@@ -30,11 +29,9 @@ Typed $git init in the terminal window and then giving it a file name.
 
 A repo was created on github.com under the name of NuPack_Pricing and cloned to the machine using git clone plus the link to the github repo where all the commits will be pushed to.
 
-# To run the test:
 type irb in the terminal and then load 'filename.rb' to see it run and pass first. The input is all included in the rate.rb file which will generate the output every time the ruby file is run or gets loaded.
 
 all commits are pushed to github.com/ktoufighi account.
-
 
 # Approach 1:
 There are different ways of approaching this problem.
